@@ -8,6 +8,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import za.co.sikabopha.absaweather.data.remote.WeatherApi
+import za.co.sikabopha.absaweather.data.repository.WeatherRepositoryImpl
+import za.co.sikabopha.absaweather.domain.repository.WeatherRepository
 import javax.inject.Singleton
 
 @Module
@@ -22,5 +24,11 @@ object WeatherModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(WeatherApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherRepository(api: WeatherApi): WeatherRepository{
+        return WeatherRepositoryImpl(api)
     }
 }
