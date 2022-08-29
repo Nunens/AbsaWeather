@@ -1,4 +1,4 @@
-package za.co.sikabopha.absaweather
+package za.co.sikabopha.absaweather.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
