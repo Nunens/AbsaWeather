@@ -1,7 +1,7 @@
 package za.co.sikabopha.absaweather.data.remote
 
 import retrofit2.http.GET
-import za.co.sikabopha.absaweather.data.entity.Timeline
+import za.co.sikabopha.absaweather.data.entity.Data
 import java.util.*
 
 interface WeatherApi {
@@ -15,5 +15,5 @@ interface WeatherApi {
     }
 
     @GET("timelines")
-    suspend fun getWeather(): List<Timeline>
+    suspend fun getWeather(): Data
 }

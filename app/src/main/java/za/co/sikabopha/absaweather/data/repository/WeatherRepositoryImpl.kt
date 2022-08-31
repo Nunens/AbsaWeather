@@ -3,6 +3,7 @@ package za.co.sikabopha.absaweather.data.repository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
+import za.co.sikabopha.absaweather.data.entity.Data
 import za.co.sikabopha.absaweather.data.remote.WeatherApi
 import za.co.sikabopha.absaweather.domain.model.Weather
 import za.co.sikabopha.absaweather.domain.repository.WeatherRepository
@@ -16,14 +17,11 @@ class WeatherRepositoryImpl @Inject constructor(private val api: WeatherApi) : W
             try {
                 emit(Resource.Loading(isLoading = true))
                 //TODO: pass location(lan, lon) as parameters
-                val resp = api.getWeather()
-                val data: List<Weather> = resp.map {
+                val resp: Data = api.getWeather()
+                val data: List<Weather> = resp.timelines[0].intervals.map{
                     Weather(
-                        it.timestamp,
                         it.startTime,
-                        it.endtime,
-                        it.intervals.startTime,
-                        it.intervals.values.temperature
+                        it.values.temperature
                     )
                 }
                 emit(Resource.Success(data = data))

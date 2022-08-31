@@ -7,5 +7,4 @@ data class WeatherState(
     val error: String = "",
     val selectedIndex: Int = 0,
     val isLoading: Boolean = false,
-    val firstLaunch: Boolean = true
 )
