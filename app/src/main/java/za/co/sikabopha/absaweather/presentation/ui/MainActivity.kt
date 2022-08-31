@@ -3,6 +3,7 @@ package za.co.sikabopha.absaweather.presentation.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -31,7 +32,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Column() {
+        Text(text = "Hello $name!")
+        Text(text = "Hello $name!")
+        Text(text = "Hello $name!")
+    }
 }
 
 @Preview(showBackground = true)
