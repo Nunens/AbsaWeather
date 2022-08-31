@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId "za.co.sikabopha.absaweather"
         minSdk 21
-        targetSdk 31
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
