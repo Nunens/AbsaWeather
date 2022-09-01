@@ -11,16 +11,17 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.collect
 import za.co.sikabopha.absaweather.domain.resource.Resource
+import za.co.sikabopha.absaweather.presentation.contract.PresentationContract
 
 @HiltViewModel
-class WeatherViewmodel @Inject constructor() : ViewModel() {
+class WeatherViewModel @Inject constructor() : ViewModel(), PresentationContract.VM {
     @Inject
     lateinit var repository: WeatherRepository
 
     private val _state = mutableStateOf(WeatherState())
     val state: State<WeatherState> = _state
 
-    fun getWeather(){
+    override fun getWeather(){
         viewModelScope.async{
             repository.getWeather()
                 .collect { resp ->
